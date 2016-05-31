@@ -1,25 +1,21 @@
 package com.saambh.BV.HotelList;
 
-import com.saambh.BV.polygons.UniverseOfPolygons;
-
 import java.util.Scanner;
 
 public class Solution {
 
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
+    String keyWordLine = in.nextLine();
 
-    UniverseOfPolygons universeOfPolygons = new UniverseOfPolygons();
-    while (in.hasNextInt()) {
-      int a = in.nextInt();
-      int b = in.nextInt();
-      int c = in.nextInt();
-      int d = in.nextInt();
-
-      universeOfPolygons.addNewPolygon(a, b, c, d);
+    HotelReview hotelReview = new HotelReview(keyWordLine.split(" "));
+    int t = in.nextInt();
+    while (t-- > 0) {
+      long hotelId = in.nextLong();
+      in.nextLine();
+      String review = in.nextLine();
+      hotelReview.addReview(hotelId, review);
     }
-    System.out.println(universeOfPolygons.getSquareCount() + " " +
-                       universeOfPolygons.getRectangleCount() + " " +
-                       universeOfPolygons.getOtherPolygonCount());
+    System.out.println(hotelReview.getSortedHotels());
   }
 }
