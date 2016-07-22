@@ -1,4 +1,4 @@
-package com.saambh.ds.advanced.SegTree;
+package com.saambh.ds.advanced.SegTree.ashu;
 
 import java.util.Scanner;
 
