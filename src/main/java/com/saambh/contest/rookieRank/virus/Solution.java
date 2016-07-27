@@ -1,5 +1,6 @@
 package com.saambh.contest.rookieRank.virus;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -14,12 +15,16 @@ public class Solution {
     int b = in.nextInt();
     long t = in.nextLong();
 
-    System.out.println(findCount(a, b , t));
+    System.out.println(findCount(a, b, t));
 
     in.close();
   }
-  private static long findCount(int a, int b, long t) {
+
+  private static int findCount(int a, int b, long t) {
     int c = (a + b) / 2;
-    return (long)Math.pow(c, t) % 1000000007;
+    return new BigInteger(String.valueOf(c))
+	.modPow(new BigInteger(String.valueOf(t)),
+		new BigInteger(String.valueOf(1000000007)))
+	.intValue();
   }
 }
